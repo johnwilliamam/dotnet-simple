@@ -26,7 +26,7 @@ builder.Services.AddOpenTelemetry()
               .SetSampler(new AlwaysOnSampler())
               .AddOtlpExporter(otlpOptions =>
               {
-                  otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://52.146.40.174:4317")!);
+                  otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!);
               });
       })
       .WithMetrics(metrics =>
@@ -37,7 +37,7 @@ builder.Services.AddOpenTelemetry()
               .AddAspNetCoreInstrumentation()
               .AddOtlpExporter(otlpOptions =>
               {
-                  otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://52.146.40.174:4317")!);
+                  otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!);
               });
       });
 
@@ -48,7 +48,7 @@ builder.Logging.AddOpenTelemetry(logging =>
     .AddConsoleExporter()
     .AddOtlpExporter(otlpOptions =>
     {
-        otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://52.146.40.174:4317")!);
+        otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!);
     });
 });
 
@@ -68,7 +68,7 @@ app.Use(async (context, next) =>
         using (var reader = new StreamReader(context.Request.Body, leaveOpen: true))
         {
             body = await reader.ReadToEndAsync();
-            context.Request.Body.Position = 0; // Reseta o corpo da requisição para a leitura posterior
+            context.Request.Body.Position = 0; // Reseta o corpo da requisicao para a leitura posterior
         }
     }
 
@@ -86,7 +86,7 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// Rota para simular um lançamento de dados GET
+// Rota para simular um lanï¿½amento de dados GET
 string HandleRollDice([FromServices] ILogger<Program> logger, string? player)
 {
     var result = RollDice();
@@ -112,7 +112,6 @@ app.MapPost("/api/submit", async (HttpContext context) =>
 
     logger.LogInformation("Received POST request with payload: {body}", body);
 
-    // Responde com uma mensagem de confirmação
     return Results.Ok(new { message = "Data received successfully", receivedData = body });
 });
 
