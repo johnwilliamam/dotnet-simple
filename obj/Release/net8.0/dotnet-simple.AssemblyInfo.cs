@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dotnet-simple")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+623e80cccfc3c76c0f92cdf9d86935efa0889110")]
 [assembly: System.Reflection.AssemblyProductAttribute("dotnet-simple")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dotnet-simple")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

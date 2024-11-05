@@ -9,6 +9,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using OpenTelemetry.Instrumentation.AspNetCore;
+using OpenTelemetry.Instrumentation.SqlClient;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,11 @@ builder.Services.AddOpenTelemetry()
               .AddAspNetCoreInstrumentation()
               .AddHttpClientInstrumentation()
               .AddConsoleExporter()
+              .AddSqlClientInstrumentation(options =>
+              {
+                  options.SetDbStatementForText = true;
+                  options.RecordException = true;
+              })
               .SetSampler(new AlwaysOnSampler())
               .AddOtlpExporter(otlpOptions =>
               {

@@ -38,3 +38,5 @@ E:\Codigos\dotnet-simple\bin\Debug\net8.0\Grpc.Net.Common.dll
 E:\Codigos\dotnet-simple\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
 E:\Codigos\dotnet-simple\bin\Debug\net8.0\OpenTelemetry.Exporter.OpenTelemetryProtocol.dll
 E:\Codigos\dotnet-simple\bin\Debug\net8.0\OpenTelemetry.Instrumentation.Http.dll
+E:\Codigos\dotnet-simple\obj\Debug\net8.0\dotnet-simple.sourcelink.json
+E:\Codigos\dotnet-simple\bin\Debug\net8.0\OpenTelemetry.Instrumentation.SqlClient.dll

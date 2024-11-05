@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "L2YKgUFcb34=",
+  "dgSpecHash": "UAOhNmlI+zA=",
   "success": true,
   "projectFilePath": "E:\\Codigos\\dotnet-simple\\dotnet-simple.csproj",
   "expectedPackageFiles": [
@@ -30,6 +30,7 @@
     "C:\\Users\\John\\.nuget\\packages\\opentelemetry.extensions.hosting\\1.9.0\\opentelemetry.extensions.hosting.1.9.0.nupkg.sha512",
     "C:\\Users\\John\\.nuget\\packages\\opentelemetry.instrumentation.aspnetcore\\1.9.0\\opentelemetry.instrumentation.aspnetcore.1.9.0.nupkg.sha512",
     "C:\\Users\\John\\.nuget\\packages\\opentelemetry.instrumentation.http\\1.9.0\\opentelemetry.instrumentation.http.1.9.0.nupkg.sha512",
+    "C:\\Users\\John\\.nuget\\packages\\opentelemetry.instrumentation.sqlclient\\1.9.0-beta.1\\opentelemetry.instrumentation.sqlclient.1.9.0-beta.1.nupkg.sha512",
     "C:\\Users\\John\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\John\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
   ],

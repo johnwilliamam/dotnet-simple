@@ -22,17 +22,25 @@ No arquivo Program.cs, adicione a instrumentação para AspNetCore e HttpClient,
 * Copiar código
 ```bash
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(resource => resource.AddService("dotnet-simple"))
-    .WithTracing(tracing =>
-    {
-        tracing
-            .AddAspNetCoreInstrumentation()
-            .AddHttpClientInstrumentation()
-            .AddOtlpExporter(otlpOptions =>
-            {
-                otlpOptions.Endpoint = new Uri("http://<OTLP-ENDPOINT>:4317");
-            });
-    });
+      .ConfigureResource(resource => resource.AddService(serviceName))
+      .WithTracing(tracing =>
+      {
+          tracing
+              .AddSource(serviceName)
+              .AddAspNetCoreInstrumentation()
+              .AddHttpClientInstrumentation()
+              .AddConsoleExporter()
+              .AddSqlClientInstrumentation(options =>
+              {
+                  options.SetDbStatementForText = true;
+                  options.RecordException = true;
+              })
+              .SetSampler(new AlwaysOnSampler())
+              .AddOtlpExporter(otlpOptions =>
+              {
+                  otlpOptions.Endpoint = new Uri(builder.Configuration.GetValue("Otlp:Endpoint", defaultValue: "http://localhost:4317")!);
+              });
+      })
 ```
 ## Configuração de Logs
 Para integrar o ILogger com o OpenTelemetry, adicione o seguinte ao seu Program.cs:
